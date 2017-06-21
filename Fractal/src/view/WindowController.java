@@ -25,6 +25,9 @@ public class WindowController {
 	
 	public WindowController(){
 		mandelbrot = new Mandelbrot();
+		int n = 300;
+		canvas.setWidth(n);
+		canvas.setHeight(n);
 	}
 	
 	@FXML

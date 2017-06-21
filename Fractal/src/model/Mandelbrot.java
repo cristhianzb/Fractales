@@ -10,20 +10,25 @@ public class Mandelbrot {
 	private int iterations;
 	private Color color,background;
 	
+	private double xc,yc,size;
+	private int n,max;
 	
 	public Mandelbrot(){		
 		color = Color.DARKGREY;
 		background = Color.WHITE;
 		iterations = 100;
+		xc = -0.5;
+		yc = 0;
+		size = 2;
+		max = 255;
 	}
 	
 	public void draw(int x0,int xf,int y0,int yf,WritableImage image){
+		n = (int)image.getWidth(); 
 		PixelWriter pw = image.getPixelWriter();
-		int width = (int)image.getWidth();
-		int height = (int)image.getHeight();
 		Color c;
-		for(int i = x0; i <= xf;i++){
-			for(int j = y0; j <= yf;j++){
+		for(int i = 0; i <= n;i++){
+			for(int j = 0; j <= n;j++){
 				c = getColor(i,j);
 				pw.setColor(width/2+i,height/2+j, c);
 				//c = Color.BLUE;
