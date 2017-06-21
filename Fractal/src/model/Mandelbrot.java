@@ -2,6 +2,8 @@ package model;
 
 import java.util.ArrayList;
 
+import javafx.scene.image.PixelWriter;
+import javafx.scene.image.WritableImage;
 import javafx.scene.paint.Color;
 
 public class Mandelbrot {
@@ -15,18 +17,19 @@ public class Mandelbrot {
 		iterations = 100;
 	}
 	
-	public ArrayList<Object[]> getPixels(int x0,int xf,int y0,int yf){
-		ArrayList<Object[]> list = new ArrayList<Object[]>();
+	public void draw(int x0,int xf,int y0,int yf,WritableImage image){
+		PixelWriter pw = image.getPixelWriter();
+		int width = (int)image.getWidth();
+		int height = (int)image.getHeight();
+		Color c;
 		for(int i = x0; i <= xf;i++){
 			for(int j = y0; j <= yf;j++){
-				Object[] e = new Object[3];
-				e[0]=i;
-				e[1]=j;
-				e[2]=getColor(i, j);
-				list.add(e);
+				c = getColor(i,j);
+				pw.setColor(width/2+i,height/2+j, c);
+				//c = Color.BLUE;
+				//pw.setColor(i, j, c);
 			}
 		}
-		return list;
 	}
 	
 	private Color getColor(int xs, int ys){
