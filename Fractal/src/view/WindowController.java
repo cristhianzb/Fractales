@@ -26,8 +26,9 @@ public class WindowController {
 	public WindowController(){
 		mandelbrot = new Mandelbrot();
 		int n = 300;
-		canvas.setWidth(n);
-		canvas.setHeight(n);
+		
+//		canvas.setWidth(n);
+//		canvas.setHeight(n);
 	}
 	
 	@FXML
@@ -43,7 +44,7 @@ public class WindowController {
 		System.out.println("dibujando");		
 		GraphicsContext g = canvas.getGraphicsContext2D();
 		WritableImage image = canvas.snapshot(null, null);
-		mandelbrot.draw(0, 100, 0, 100, image);
+		mandelbrot.draw(image);
 		g.drawImage(image, 0, 0);
 		
 	}
