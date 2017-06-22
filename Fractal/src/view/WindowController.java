@@ -24,16 +24,14 @@ public class WindowController {
 	private Mandelbrot mandelbrot;
 	
 	public WindowController(){
-		mandelbrot = new Mandelbrot();
-		int n = 300;
-		
-//		canvas.setWidth(n);
-//		canvas.setHeight(n);
+		mandelbrot = new Mandelbrot();		
 	}
 	
 	@FXML
 	private void borrar(){
-		System.out.println("borrando");
+		
+		GraphicsContext gc = canvas.getGraphicsContext2D();
+		gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
 	}
 	
 	
@@ -41,7 +39,7 @@ public class WindowController {
 	
 	@FXML
 	private void dibujar(){
-		System.out.println("dibujando");		
+		
 		GraphicsContext g = canvas.getGraphicsContext2D();
 		WritableImage image = canvas.snapshot(null, null);
 		mandelbrot.draw(image);

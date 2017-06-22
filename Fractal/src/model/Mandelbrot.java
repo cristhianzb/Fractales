@@ -14,7 +14,7 @@ public class Mandelbrot {
 	private int n,m;
 	
 	public Mandelbrot(){		
-		color = Color.DARKGREY;
+		color = Color.BLUE;
 		background = Color.WHITE;
 		iterations = 255;
 		xc = -0.5;
